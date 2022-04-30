@@ -6,4 +6,6 @@
 * [Module 3: SHAP](module-3-shap.md)
 * [Module 4: Other Explainable AI Tools](module-4-other-explainable-ai-tools.md)
 * [Module 5: The Future of Interpretability](module-5-the-future-of-interpretability.md)
+* [Session by Dipanjan](session-by-dipanjan.md)
+* [Sessions Slides](sessions-slides.md)
 * [Final Assignment](final-assignment.md)
