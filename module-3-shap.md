@@ -11,7 +11,7 @@
 
 ### SHAP
 
-**SHAP (SHapley Additive exPlanations) **is a unified approach to explain** **the output of any machine learning model.
+**SHAP (SHapley Additive exPlanations)** is a unified approach to explain **** the output of any machine learning model.
 
 It combines game theory with machine learning models.
 
@@ -37,32 +37,32 @@ They quantify the magnitude and direction (positive or negative) of a feature’
 
 ### Why is SHAP a more popular and reliable technique?
 
-1. **Missingness: **If the simplified inputs represent feature presence, then** **missingness requires features missing in the original input to have no impact
-2. **Consistency: **Consistency states that if a model changes so that some** **simplified input’s contribution increases or stays the same regardless of the other inputs, that input’s attribution should not decrease
-3. **Efficiency: **As the foundation of SHAP values is based on computational** **game theory, this is the only method that can fairly distribute the gain of the feature.
-4. **Global comparison: **SHAP values provide a way to compare the feature** **importance at a global level. You can also change the dataset from global to a subset dataset of interest.
+1. **Missingness:** If the simplified inputs represent feature presence, then **** missingness requires features missing in the original input to have no impact
+2. **Consistency:** Consistency states that if a model changes so that some **** simplified input’s contribution increases or stays the same regardless of the other inputs, that input’s attribution should not decrease
+3. **Efficiency:** As the foundation of SHAP values is based on computational **** game theory, this is the only method that can fairly distribute the gain of the feature.
+4. **Global comparison:** SHAP values provide a way to compare the feature **** importance at a global level. You can also change the dataset from global to a subset dataset of interest.
 
 ### Drawbacks
 
-1. **Computation time: **Number of possible combinations of the features** **exponentially increases as more number of features are added. This in turn increases the turn around time of calculating SHAP values, and approximation is the only solution.
-2. **Order of feature selection in all possible combinations: **Typically while** **solving real world problems, the target is non-linearly related with the independent features, and there is some correlation amongst the independent features too. In such cases the order in which the features are selected in the combination matters and can impact the SHAP values.
-3. **Simulation of scenarios: **SHAP doesn’t return a model, like LIME. So if you** **want to simulate scenarios of increase in a particular feature will impact the output by how much, then it’s not possible with SHAP.
-4. **Correlation amongst independent features: **Again in most real world** **problems the independent features will be correlated. In such situations, when we sample from feature’s marginal distribution there can be instances generated which might not be possible in real world.
+1. **Computation time:** Number of possible combinations of the features **** exponentially increases as more number of features are added. This in turn increases the turn around time of calculating SHAP values, and approximation is the only solution.
+2. **Order of feature selection in all possible combinations:** Typically while **** solving real world problems, the target is non-linearly related with the independent features, and there is some correlation amongst the independent features too. In such cases the order in which the features are selected in the combination matters and can impact the SHAP values.
+3. **Simulation of scenarios:** SHAP doesn’t return a model, like LIME. So if you **** want to simulate scenarios of increase in a particular feature will impact the output by how much, then it’s not possible with SHAP.
+4. **Correlation amongst independent features:** Again in most real world **** problems the independent features will be correlated. In such situations, when we sample from feature’s marginal distribution there can be instances generated which might not be possible in real world.
 
 ### SHAP Vocabulary
 
 It is important to understand all the bricks that make up a SHAP explanation.
 
-* **global explanations: **explanations of how the model works from a general point** **of view
-* **local explanations: **explanations of the model for a sample (a data point)
-* **explainer (shap.explainer\_type(params)): **type of explainability algorithm to be** **chosen according to the model used.
+* **global explanations:** explanations of how the model works from a general point **** of view
+* **local explanations:** explanations of the model for a sample (a data point)
+* **explainer (shap.explainer\_type(params)):** type of explainability algorithm to be **** chosen according to the model used.
 
 The parameters are different for each type of model. Usually, the model and training data must be provided, at a minimum.
 
-* **base value (explainer.expected\_value): **E(y\_hat) is “the value that would be** **predicted if we didn’t know any features of the current output” is the mean(y\_hat) prediction for the training data set or the background set. We can call it “reference value”, it’s a scalar (n).
-* **SHAPley values (explainer.shap\_values(x)): **the average contribution of each** **feature to each prediction for each sample based on all possible features. It is a (n,m) n — samples, m — features matrix that represents the contribution of each feature to each sample.
-* **output value (for a sample): **the value predicted by the algorithm (the** **probability, logit or raw output values of the model)
-* **display features (n x m): **a matrix of original values — before** **transformation/encoding/engineering of features etc. — that can be provided to some graphs to improve interpretation. Often overlooked and essential for interpretation.
+* **base value (explainer.expected\_value):** E(y\_hat) is “the value that would be **** predicted if we didn’t know any features of the current output” is the mean(y\_hat) prediction for the training data set or the background set. We can call it “reference value”, it’s a scalar (n).
+* **SHAPley values (explainer.shap\_values(x)):** the average contribution of each **** feature to each prediction for each sample based on all possible features. It is a (n,m) n — samples, m — features matrix that represents the contribution of each feature to each sample.
+* **output value (for a sample):** the value predicted by the algorithm (the **** probability, logit or raw output values of the model)
+* **display features (n x m):** a matrix of original values — before **** transformation/encoding/engineering of features etc. — that can be provided to some graphs to improve interpretation. Often overlooked and essential for interpretation.
 
 There’s NO need to worry if you don’t understand all these terms completely. If you want to understand the meaning of something during the implementation, you can simply come back and refer to this.
 
@@ -83,7 +83,7 @@ The choice of Explainers depends mainly on the selected learning model.
 
 * For linear models, the **“Linear Explainer”** is used.
 * For decision trees and “set” type models — **“TreeExplainer”** can be used. In addition the “Tree Explainer” allows to display the interaction values. It also allows to transform the model output into probabilities or logloss, which is useful for a better understanding of the model or to compare several models.
-* **“Kernel Explainer” **can be used on all models- either tree or non-tree based.** **However, it is slower than the above mentioned explainers. It creates a model that substitutes the closest to our model. Kernel Explainer can also be used to explain neural networks.
+* **“Kernel Explainer”** can be used on all models- either tree or non-tree based. **** However, it is slower than the above mentioned explainers. It creates a model that substitutes the closest to our model. Kernel Explainer can also be used to explain neural networks.
 * For deep learning models, there are the **Deep Explainer** and the **Gradient Explainer.**
 * All the explainers are explained in detail here: [https://shap.readthedocs.io/en/latest/examples.html#general](https://shap.readthedocs.io/en/latest/examples.html#general)
 
@@ -93,6 +93,8 @@ The choice of Explainers depends mainly on the selected learning model.
 
 The SHAP package is also useful in other machine learning tasks as well. For example, image recognition tasks or text-based tasks. In the figure below, you can see which pixels contributed to which model output.
 
+![](https://lh6.googleusercontent.com/E2p1VJQZlPj48SecGiCRJkwHuFhGFnVyPRxcDe1Y4PfpqcX4J7eQW00fdOpgJOBKAppUUZ0jIaFRTLXp2n0hUFvAFeSrtG6-Hj7Rf\_YQegNufmV-1aoiY7r\_RPS92WCaVUmWZTyR-bg)
+
 ### **Diving into Implementation**
 
 Census Income Dataset
@@ -101,9 +103,9 @@ Also known as "Adult" dataset.
 
 It contains weighted census data extracted from the 1994 and 1995 Current Population Surveys conducted by the U.S. Census Bureau
 
-**OBJECTIVE: **Predict whether income exceeds $50K/yr based on census** **data.
+**OBJECTIVE:** Predict whether income exceeds $50K/yr based on census **** data.
 
-This is a binary classification problem.** **
+This is a binary classification problem. ****&#x20;
 
 Notebook: [https://dphi.tech/notebooks/816/gunnika/shap-implementation](https://dphi.tech/notebooks/816/gunnika/shap-implementation)
 
